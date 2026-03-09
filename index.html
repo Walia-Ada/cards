@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mara's Timecard</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #777;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    width: 280px;
+    background: #ece3a8;
+    border: 1px solid #c0aa60;
+    padding: 14px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    color: #222;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.25);
+    position: relative;
+  }
+
+  .card-header {
+    text-align: center;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .card-number {
+    font-family: 'Special Elite', cursive;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .field-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    margin-bottom: 7px;
+    border-bottom: 1px solid #c0aa60;
+    padding-bottom: 2px;
+  }
+
+  .field-label {
+    font-size: 7.5px;
+    text-transform: uppercase;
+    color: #777;
+    white-space: nowrap;
+  }
+
+  .field-value {
+    font-family: 'Special Elite', cursive;
+    font-size: 12px;
+    color: #1a1a1a;
+    flex: 1;
+  }
+
+  .fields-inline { display: flex; gap: 10px; }
+  .fields-inline .field-row { flex: 1; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 8.5px;
+  }
+
+  th {
+    background: #d4c070;
+    border: 1px solid #c0aa60;
+    padding: 3px 2px;
+    text-align: center;
+    font-size: 7px;
+    text-transform: uppercase;
+    color: #444;
+  }
+
+  td {
+    border: 1px solid #c0aa60;
+    padding: 3px;
+    text-align: center;
+    height: 17px;
+  }
+
+  td.date-col { font-size: 7.5px; color: #666; background: #e0d488; }
+  td.filled { font-family: 'Special Elite', cursive; color: #1a1a1a; }
+  td.total-col { background: #e0d488; font-family: 'Special Elite', cursive; }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-top: 1px solid #c0aa60;
+    padding-top: 6px;
+    font-size: 7.5px;
+    color: #666;
+    text-transform: uppercase;
+  }
+
+  .footer-field { display: flex; flex-direction: column; gap: 3px; }
+
+  .footer-field span {
+    border-bottom: 1px solid #c0aa60;
+    min-width: 55px;
+    height: 14px;
+    font-family: 'Special Elite', cursive;
+    font-size: 10px;
+    color: #1a1a1a;
+  }
+
+  .stamp {
+    position: absolute;
+    bottom: 24px;
+    right: 12px;
+    border: 2px solid #8b000077;
+    color: #8b000077;
+    font-family: 'Special Elite', cursive;
+    font-size: 11px;
+    padding: 2px 8px;
+    transform: rotate(-6deg);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    body { background: white; padding: 10px; }
+    .card { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CARD 1 -->
+<div class="card">
+  <div class="card-header">Pay Period Ending</div>
+  <div class="card-number">No. 47</div>
+  <div class="field-row">
+    <span class="field-label">Name</span>
+    <span class="field-value">Mara Ellison</span>
+  </div>
+  <div class="fields-inline">
+    <div class="field-row">
+      <span class="field-label">Dept.</span>
+      <span class="field-value">Archives</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Week of</span>
+      <span class="field-value">Jan 6</span>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>Date</th><th>Day</th><th>In</th><th>Out</th><th>Total</th></tr></thead>
+    <tbody>
+      <tr><td class="date-col">Jan 6</td><td>Mon</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 7</td><td>Tue</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 8</td><td>Wed</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 9</td><td>Thu</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 10</td><td>Fri</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 11</td><td>Sat</td><td></td><td></td><td class="total-col"></td></tr>
+      <tr><td class="date-col">Jan 12</td><td>Sun</td><td></td><td></td><td class="total-col"></td></tr>
+    </tbody>
+  </table>
+  <div class="footer-row">
+    <div class="footer-field">Total Hrs <span>64:35</span></div>
+    <div class="footer-field">Supervisor <span>R. Holt</span></div>
+  </div>
+  <div class="stamp">Archive</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card">
+  <div class="card-header">Pay Period Ending</div>
+  <div class="card-number">No. 48</div>
+  <div class="field-row">
+    <span class="field-label">Name</span>
+    <span class="field-value">Mara Ellison</span>
+  </div>
+  <div class="fields-inline">
+    <div class="field-row">
+      <span class="field-label">Dept.</span>
+      <span class="field-value">Archives</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Week of</span>
+      <span class="field-value">Jan 13</span>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>Date</th><th>Day</th><th>In</th><th>Out</th><th>Total</th></tr></thead>
+    <tbody>
+      <tr><td class="date-col">Jan 13</td><td>Mon</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 14</td><td>Tue</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 15</td><td>Wed</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 16</td><td>Thu</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 17</td><td>Fri</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 18</td><td>Sat</td><td></td><td></td><td class="total-col"></td></tr>
+      <tr><td class="date-col">Jan 19</td><td>Sun</td><td></td><td></td><td class="total-col"></td></tr>
+    </tbody>
+  </table>
+  <div class="footer-row">
+    <div class="footer-field">Total Hrs <span>64:35</span></div>
+    <div class="footer-field">Supervisor <span>R. Holt</span></div>
+  </div>
+  <div class="stamp">Archive</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="card">
+  <div class="card-header">Pay Period Ending</div>
+  <div class="card-number">No. 49</div>
+  <div class="field-row">
+    <span class="field-label">Name</span>
+    <span class="field-value">Mara Ellison</span>
+  </div>
+  <div class="fields-inline">
+    <div class="field-row">
+      <span class="field-label">Dept.</span>
+      <span class="field-value">Archives</span>
+    </div>
+    <div class="field-row">
+      <span class="field-label">Week of</span>
+      <span class="field-value">Jan 20</span>
+    </div>
+  </div>
+  <table>
+    <thead><tr><th>Date</th><th>Day</th><th>In</th><th>Out</th><th>Total</th></tr></thead>
+    <tbody>
+      <tr><td class="date-col">Jan 20</td><td>Mon</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 21</td><td>Tue</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 22</td><td>Wed</td><td class="filled">6:00</td><td class="filled" style="color:#8b0000;">9:12</td><td class="total-col filled" style="color:#8b0000;">3:12</td></tr>
+      <tr><td class="date-col">Jan 23</td><td>Thu</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 24</td><td>Fri</td><td class="filled">6:00</td><td class="filled">6:55</td><td class="total-col filled">12:55</td></tr>
+      <tr><td class="date-col">Jan 25</td><td>Sat</td><td></td><td></td><td class="total-col"></td></tr>
+      <tr><td class="date-col">Jan 26</td><td>Sun</td><td></td><td></td><td class="total-col"></td></tr>
+    </tbody>
+  </table>
+  <div class="footer-row">
+    <div class="footer-field">Total Hrs <span>55:47</span></div>
+    <div class="footer-field">Supervisor <span>R. Holt</span></div>
+  </div>
+  <div class="stamp">Archive</div>
+</div>
+
+</body>
+</html>
